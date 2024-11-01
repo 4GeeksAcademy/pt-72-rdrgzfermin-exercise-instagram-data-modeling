@@ -13,8 +13,9 @@ class User(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
 
-    contacts = relationship('Follower', back_populates="user")
+    followers = relationship('Follower', back_populates="user")
     favorites = relationship('Favorites', back_populates="user")
 
 class Follower(Base):
